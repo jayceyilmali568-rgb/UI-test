@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f3f0e9"><title>此刻收音机 · HERE RADIO</title><link rel="stylesheet" href="style.css"></head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="此刻收音机首页"><span class="brand-mark">h<span>r</span></span><span>此刻收音机<small>HERE RADIO</small></span></a><nav><button id="collection-open">票根册 <span>↗</span></button><button id="sound" aria-pressed="false" aria-label="开启声音">声音关 <span>◌</span></button></nav></header>
+  <main>
+    <div class="intro"><span class="eyebrow"><i></i> A LITTLE SPACE FOR YOURSELF</span><h1>这一刻，<br>我心里是什么天气<span>？</span></h1><p>不用整理好情绪。<br>我可以先这样待一会儿。</p></div>
+    <section class="radio" aria-label="记录此刻的感受">
+      <div class="radio-top"><span><i></i> 此刻频道</span><span class="mono">FM · NOW</span></div>
+      <div id="tuning">
+        <div class="readout"><span class="tiny">给此刻，一个位置</span><h2 id="feeling">我还说不清。</h2><span class="frequency" id="frequency">06 / 12</span></div>
+        <div class="dial-area"><div class="dial-label left">有些沉</div><div class="dial-label right">有些轻</div><div class="dial" id="dial" role="slider" tabindex="0" aria-label="此刻的感受" aria-valuemin="1" aria-valuemax="12" aria-valuenow="6"><div class="ticks" id="ticks"></div><div class="knob" id="knob"><span class="knob-line"></span><span class="knob-center">此 刻</span></div></div></div>
+        <p class="dial-hint">转一转，停在像我的地方 <span>↻</span></p>
+        <div class="capture"><button id="capture" aria-label="按住约两秒，收下此刻"><span class="capture-fill"></span><span id="capture-label">按住，收下此刻</span><span>↓</span></button><p>慢慢来，留一点时间给自己</p></div>
+      </div>
+      <div id="result" hidden><article class="ticket"><div class="ticket-top">HERE RADIO <span>此刻存根</span></div><div class="landscape"><span class="sun"></span><span class="hill hill-one"></span><span class="hill hill-two"></span><span class="hill hill-three"></span></div><span class="tiny">我听见自己说</span><h2 id="result-feeling"></h2><p>我先把这一刻放在这里。</p><div class="ticket-bottom"><span id="ticket-number"></span><time id="ticket-date"></time></div></article><p class="saved" id="saved-status" role="status">已经替我收好了。</p><div class="result-actions"><button id="share">分享这一张 ↗</button><button id="again">再拨一次 ↻</button></div></div>
+      <div class="radio-bottom"><span>DESIGNED TO LISTEN.</span><span class="speaker">||||||||||||||||||||||||</span><span>VOL. 01</span></div>
+    </section>
+    <aside class="side-note"><span class="little-star">✳</span><p>每一种天气，<br>都可以在这里停靠。</p><span class="note-line"></span><small>NO RIGHT FEELING.<br>JUST YOUR FEELING.</small></aside>
+  </main>
+  <footer><span>只留此刻，不赶明天。</span><span class="footer-right"><span>记录仅保存在这台设备</span><button id="help-open">我需要帮助 ↗</button></span></footer>
+  <dialog id="collection"><div class="dialog-heading"><div><span class="eyebrow">LITTLE MOMENTS, KEPT.</span><h2>我的票根册</h2></div><button class="close" aria-label="关闭票根册">×</button></div><p>每一种天气，都留下了自己的形状。</p><div id="ticket-list"></div></dialog>
+  <dialog id="help"><div class="dialog-heading"><h2>我不用一个人撑着。</h2><button class="close" aria-label="关闭帮助">×</button></div><p>如果我此刻可能伤害自己，先去有人的安全地方，把可能伤害自己的东西放远，联系一个能陪着我的人。</p><p>有立即危险时，联系当地急救。在中国大陆可拨打 <a href="tel:120">120</a> 或 <a href="tel:110">110</a>；也可尝试心理援助热线 <a href="tel:12356">12356</a>。</p><p>不在中国大陆？可以在 <a href="https://findahelpline.com" target="_blank" rel="noopener noreferrer">Find A Helpline ↗</a> 按所在地区查找资源。</p></dialog>
+  <div id="toast" role="status"></div>
+  <script type="module" src="app.js"></script>
+</body></html>
