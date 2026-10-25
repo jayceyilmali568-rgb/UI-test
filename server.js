@@ -2,6 +2,8 @@ import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 const types = { html: 'text/html; charset=utf-8', css: 'text/css', js: 'text/javascript' };
 http.createServer(async (req, res) => {
+  // Always serve matching HTML and script versions during local development.
+  res.setHeader('Cache-Control', 'no-store');
   const path = new URL(req.url, 'http://localhost').pathname;
   const file = path === '/' ? 'index.html' : path.slice(1);
   if (!['index.html', 'style.css', 'app.js'].includes(file)) { res.writeHead(404); res.end(); return; }

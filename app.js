@@ -1,4 +1,19 @@
-const $ = id => document.getElementById(id);
+// Allow the script to be loaded from the head or by a preview tool as well.
+if (document.readyState === 'loading') {
+  await new Promise(resolve => document.addEventListener('DOMContentLoaded', resolve, { once: true }));
+}
+const $ = id => {
+  const element = document.getElementById(id);
+  if (!element) {
+    const message = `页面文件与脚本不匹配（缺少 ${id}）。请更新完整项目，重启服务后按 Ctrl+F5 刷新。`;
+    const notice = document.createElement('p');
+    notice.setAttribute('role', 'alert');
+    notice.textContent = message;
+    document.body.prepend(notice);
+    throw new Error(message);
+  }
+  return element;
+};
 const feelings = ['我现在很沉。','我有些难过。','我有些疲惫。','我有些烦躁。','我有点不安。','我还说不清。','我想静一静。','我现在平平的。','我有一点松动。','我感到平静。','我有些轻快。','我心里有光。'];
 let index = 5, records = [], sound = false, audio, holdStart = 0, frame, editingId = null;
 function read(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } }
